@@ -1,6 +1,4 @@
 module.exports = {
     port : 80,
-    db_host : '',
-    db_login : '',
-    db_password : ''
+    mongodbConnectionString : ''
 }

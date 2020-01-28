@@ -1,3 +1,18 @@
+@import url('https://fonts.googleapis.com/css?family=Oswald|Poppins&display=swap');
+
 body {
-    background-color:grey;
+    background-color : white;
+    margin:0;
+    padding:0;
+}
+div.main {
+    background-position: top;
+    background-image:url('../images/background.jpg');
+    background-size: contain;
+    background-position-y:top;
+    background-repeat:no-repeat;
+    background-attachment: fixed;
+}
+#page {
+    background-color : white;
 }

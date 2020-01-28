@@ -10,8 +10,13 @@
   "author": "LECOMTE Cyril",
   "license": "ISC",
   "dependencies": {
-    "browser-refresh": "^1.7.3",
+    "bcryptjs": "^2.4.3",
+    "chalk": "^3.0.0",
     "express": "^4.17.1",
+    "mongoose": "^5.8.10",
     "pug": "^2.0.4"
+  },
+  "dev-dependencies": {
+    "browser-refresh": "^1.7.3"
   }
 }

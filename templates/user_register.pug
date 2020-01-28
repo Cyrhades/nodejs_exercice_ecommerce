@@ -1,0 +1,51 @@
+extends layout.pug
+block content
+    .row
+        .col-3
+        .col-4
+            form(method="post")
+                .form-group.input-group
+                    .input-group-prepend
+                        span.input-group-text 
+                            i.fa.fa-envelope
+                    input#login(type="email" class="form-control" placeholder="Email" required="true" name="login")
+            
+                .form-group.input-group
+                    .input-group-prepend
+                        span.input-group-text 
+                            i.fa.fa-lock
+                    input#pass(type="password" class="form-control" placeholder="Mot de passe" required="true" name="password")
+                
+                .form-group.input-group
+                    .input-group-prepend
+                        span.input-group-text 
+                            i.fa.fa-lock
+                    input#cpass(type="password" class="form-control" placeholder="Répéter le mot de passe" required="true" name="cpassword")
+                
+                .form-group.input-group
+                    .input-group-prepend
+                        span.input-group-text 
+                            i.fa.fa-user       
+                    select#civility(required="true" class="form-control" name="civility")  
+                        option(valmue="M.") Monsieur
+                        option(value="Mme") Madame
+                
+                .form-group.input-group
+                    .input-group-prepend
+                        span.input-group-text 
+                            i.fa.fa-user       
+                    input#lastname(type="text" class="form-control" placeholder="Nom" required="true" name="lastname")
+                
+                .form-group.input-group
+                    .input-group-prepend
+                        span.input-group-text 
+                            i.fa.fa-user
+                    input#firstname(type="text" class="form-control" placeholder="prénom" required="true"  name="firstname")
+
+                p
+                    button(type="submit") S'inscrire
+
+            hr
+
+            p Je suis déjà inscris, 
+                a(href="/connexion") je me connecte
