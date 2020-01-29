@@ -7,4 +7,15 @@ module.exports = class User {
         let hash = bcrypt.hashSync(password, bcrypt.genSaltSync(10));
         UserMongo.create({civility, lastname, firstname, email, password : hash})
     }
+
+    emailExists(email) {
+        return new Promise((resolve, rejected) => {
+             // On recherche l'email
+            UserMongo.findOne({ email }).exec((err, user) => {
+                // Si il y a une erreur (pas de résultat)
+                if (err !== null || user === null) resolve(false);
+                resolve(true);
+            })
+        })
+    }
 }

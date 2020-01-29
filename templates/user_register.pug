@@ -3,12 +3,15 @@ block content
     .row
         .col-3
         .col-4
+            if error
+                .alert.alert-danger(role="alert")  #{error}
+
             form(method="post")
                 .form-group.input-group
                     .input-group-prepend
                         span.input-group-text 
                             i.fa.fa-envelope
-                    input#login(type="email" class="form-control" placeholder="Email" required="true" name="login")
+                    input#login(type="email" class="form-control" placeholder="Email" required="true" name="email")
             
                 .form-group.input-group
                     .input-group-prepend
