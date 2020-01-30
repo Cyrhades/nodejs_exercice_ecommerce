@@ -18,4 +18,20 @@ module.exports = class User {
             })
         })
     }
+
+    connect(email, password) {
+        return new Promise((resolve, rejected) => {
+            // On recherche l'email
+           UserMongo.findOne({ email }).exec((err, user) => {
+
+                if ( (err !== null || user === null) === false) {
+                    if(bcrypt.compareSync(password, user.password)) {
+                        resolve(user)
+                    }
+                }
+
+               resolve(false);
+           })
+       })
+    }
 }

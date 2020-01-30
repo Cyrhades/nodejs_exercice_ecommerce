@@ -17,4 +17,18 @@ module.exports = (app) => {
         let Register = new Controller()
         Register.process(req, res)
     })
+
+
+        
+    app.get('/connexion', (req, res) => {
+        let Controller = require("../controllers/SignIn.js")
+        let SignIn = new Controller()
+        SignIn.printForm(req, res)
+    })
+    
+    app.post('/connexion', (req, res) => {
+        let Controller = require("../controllers/SignIn.js")
+        let SignIn = new Controller()
+        SignIn.process(req, res)
+    })
 }

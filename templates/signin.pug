@@ -1,0 +1,23 @@
+extends layout.pug
+block content
+    .row
+        .col-3
+        .col-4
+            if error
+                .alert.alert-danger(role="alert")  #{error}
+
+            form(method="post")
+                .form-group.input-group
+                    .input-group-prepend
+                        span.input-group-text 
+                            i.fa.fa-envelope
+                    input#login(type="email" class="form-control" placeholder="Email" required="true" name="email")
+            
+                .form-group.input-group
+                    .input-group-prepend
+                        span.input-group-text 
+                            i.fa.fa-lock
+                    input#pass(type="password" class="form-control" placeholder="Mot de passe" required="true" name="password")
+                                
+                p
+                    button(type="submit") Se connecter
