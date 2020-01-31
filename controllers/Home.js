@@ -1,5 +1,8 @@
-module.exports = class Home {
-    print(request, response) {
-        response.render('index')
+const AbstractController = require('./AbstractController.js')
+
+module.exports = class Home extends AbstractController {
+ 
+    print() {
+        this.response.render('index')
     }
 }

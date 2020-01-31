@@ -25,8 +25,11 @@ html(lang="fr")
                             li 3DS/2DS
                             li Retro
                             li.right 
-                                a(href="/connexion") Se connecter 
-                                a(href="/inscription") S'incrire
+                                if session.user
+                                    a(href="/deconnexion") Se déconnecter 
+                                else
+                                    a(href="/connexion") Se connecter 
+                                    a(href="/inscription") S'incrire
         
         div.main
             div#page.container

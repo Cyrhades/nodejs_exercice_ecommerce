@@ -1,21 +1,30 @@
-module.exports = class SignIn {
+const AbstractController = require('./AbstractController.js')
 
-
-    printForm(request, response)
+module.exports = class SignIn extends AbstractController {
+   
+    constructor(request, response) {
+        super(request, response)
+        this.isConnectedRedirect();
+    }
+    
+    printForm()
     {
-        response.render('signin')
+        this.response.render('signin')
     }
 
 
-    async process(request, response)
+    async process()
     {
         let UserModel = require('../models/User.js')
         let User = new UserModel()
 
-        let user = await User.connect(request.body.email, request.body.password);
+        let user = await User.connect(this.request.body.email, this.request.body.password);
         if(user) {
-            response.redirect('/')
+            this.request.session.user = user
+            this.request.session.user.connected = true
+            this.response.redirect('/')
+            return;
         }
-        response.redirect('/connexion')
+        this.response.redirect('/connexion')
     }
 }

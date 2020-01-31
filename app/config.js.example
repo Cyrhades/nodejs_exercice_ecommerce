@@ -1,4 +1,5 @@
 module.exports = {
+    appKey: '',
     port : 80,
     mongodbConnectionString : ''
 }
