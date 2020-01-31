@@ -11,7 +11,7 @@ module.exports = class Product {
     {
         return new Promise((resolve, rejected) => {
             // On recherche l'email
-            ProductMongo.find({}, null, {limit, skip} ).exec((err, products) => {
+            ProductMongo.find().limit(limit).skip(skip).exec((err, products) => {
                 if (err === null && products !== null) {
                     ProductMongo.countDocuments({}, (errCount, totalCount) => {
                         resolve({totalCount, limit, products})
