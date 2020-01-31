@@ -8,6 +8,11 @@ const session = require('express-session')
 // chargement du fichier de config
 const config = require("./app/config.js")
 
+//------------------------------------------------------------------------------
+//          PASSPORT
+//------------------------------------------------------------------------------
+require('./app/passport')(app)
+
 
 //------------------------------------------------------------------------------
 //      Ajout des sessions à notre application 
@@ -62,6 +67,6 @@ require("./app/routes.js")(app)
 //------------------------------------------------------------------------------
 app.listen(config.port, () => {
     console.log(
-        chalk.red(`Le serveur est en écoute à l'adresse : ${chalk.blue(`http://127.0.0.1:${config.port}`)}`)
+        chalk.red(`Le serveur est en écoute à l'adresse : ${chalk.blue(`http://localhost:${config.port}`)}`)
     )
 })

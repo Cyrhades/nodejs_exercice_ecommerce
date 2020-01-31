@@ -1,3 +1,10 @@
 extends layout.pug
 block content
     #content Bienvenue sur notre site E-commerce
+
+    section
+        each product in data.products
+            article
+                h2 #{product.name}
+                img(src=product.image)
+                span #{product.price}

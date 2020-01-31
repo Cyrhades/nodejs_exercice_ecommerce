@@ -1,4 +1,14 @@
 module.exports = {
+    // Github oAuth
+    github : {
+        clientID: '',
+        clientSecret: '',
+    },
+    // Google oAuth
+    google :{
+        clientID: "",
+        clientSecret: "",
+    },
     appKey: '',
     port : 80,
     mongodbConnectionString : ''

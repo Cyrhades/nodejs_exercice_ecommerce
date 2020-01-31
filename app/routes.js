@@ -1,3 +1,5 @@
+const passport = require("passport")
+
 module.exports = (app) => {
 
     app.get('/', (req, res) => {
@@ -31,6 +33,42 @@ module.exports = (app) => {
         let SignIn = new Controller(req, res)
         SignIn.process()
     })
+
+
+    // la connexion google avec Passport
+    app.get('/connexion/github', 
+        passport.authenticate('github', { scope: ['profile'] })
+    )
+    
+    // la page de callback
+    app.get('/connexion/github/callback', 
+        passport.authenticate('github', { 
+            successRedirect: '/', 
+            failureRedirect: '/connexion' 
+        })
+    )
+
+
+    // la connexion google avec Passport
+    app.get('/connexion/google', 
+        passport.authenticate('google', { scope: ['profile'] })
+    )
+    // la page de callback
+    app.get('/connexion/google/callback', passport.authenticate('google', { successRedirect: '/', failureRedirect: '/connexion' }));
+
+
+
+    // la connexion google avec Passport
+    app.get('/connexion/github', 
+        passport.authenticate('github', { scope: ['profile'] })
+    )
+    // la page de callback
+    app.get('/connexion/github/callback', 
+        passport.authenticate('github', { 
+            successRedirect: '/', 
+            failureRedirect: '/connexion' 
+        })
+    );
 
 
     app.get('/deconnexion', (req, res) => {
